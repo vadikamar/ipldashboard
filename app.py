@@ -4,11 +4,12 @@ import plotly.express as px
 import altair as alt
 
 # Load the IPL matches dataset
+
 df = pd.read_csv("data/match_info_data.csv")  # Replace "path_to_your_dataset.csv" with the actual path to your dataset
 
 # Sidebar
 with st.sidebar:
-    st.title("IPL Matches Dashboard\n -By Vadik Amar(20BCS2872) and Shivam Gupta(20BCS7015)")
+    st.title("IPL Matches Dashboard")
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
     selected_team1 = st.sidebar.selectbox("Select Team:", df['team1'].unique(),key="team1")
@@ -134,5 +135,6 @@ fig1 = px.pie(names=['Toss Loss', 'Toss Win'], values=[tossloss_year, tosswin_ye
 # Streamlit application
 st.title(f'Toss Winner is Match Winner Visualization in {selected_season}')
 st.plotly_chart(fig1, use_container_width=True)
+
 
 
